@@ -21,9 +21,6 @@ bash /usr/share/doc/wordpress/examples/setup-mysql -n wordpress localhost
 ln -s /usr/share/wordpress /var/www/html/wordpress
 mv /etc/wordpress/config-localhost.php /etc/wordpress/config-default.php
 
-# Restart Apache
-apachectl restart
-
 logger "Done installing WordPress; open /wordpress to configure"
 
 sudo curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
@@ -36,3 +33,7 @@ sudo -u Snow@123 -i -- wp core version
 sudo -u Snow@123 -i -- wp config create --dbname=wordpress --dbuser=root --dbpass=mysql123
 
 sudo -u Snow@123 -i -- wp core install --url=anascorp1.com --title=anascorp1 --admin_user=anantht --admin_password=Password@1 --admin_email=ananth.thangarajan@servicenow.com
+
+
+# Restart Apache
+apachectl restart
